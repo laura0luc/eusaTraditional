@@ -3,16 +3,51 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 26/06/2012 07:25:28 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.eusa.domain.Servicio" table="SERVICIO">
-        <id name="id" type="int">
-            <column name="ID" />
-            <generator class="assigned" />
+    <class name="com.eusa.domain.Servicio" table="servicio" discriminator-value="com.eusa.domain.Servicio">
+         <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
         </id>
-        <property name="nombre" type="java.lang.String">
-            <column name="nombre" />
+        <discriminator column="class" type="string"/>
+        <version name="version" type="long">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
         </property>
-        <property name="ultimoServicio" type="java.util.Date">
-            <column name="ultimo_servicio" />
+        <property name="ultimoServicio" type="string">
+            <column name="ultimo_servicio" not-null="true" />
         </property>
+        
+        <set name="equipos" table="equipo_servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="servicio_id" />
+            </key>
+                       <many-to-many entity-name="com.eusa.domain.Equipo">
+                <column name="equipo_servicios_id" not-null="true" />
+            </many-to-many>
+        </set>
+        
+        
+        <subclass name="com.eusa.domain.ServicioTemporal" discriminator-value="com.eusa.domain.ServicioTemporal">
+            <property name="fechaIni" type="timestamp">
+	            <column name="fecha_ini" length="19" />
+	        </property>
+	        <property name="fechafin" type="timestamp">
+	            <column name="fechafin" length="19" />
+	        </property>
+	        <property name="frecuencia" type="java.lang.Integer">
+	            <column name="frecuencia" />
+	        </property>
+    	</subclass>
+        
+        
+        <subclass name="com.eusa.domain.ServicioUnidad" discriminator-value="com.eusa.domain.ServicioUnidad">
+           <property name="unidad" type="string">
+            	<column name="unidad" />
+        	</property>
+    	</subclass>
+        
+        
     </class>
 </hibernate-mapping>

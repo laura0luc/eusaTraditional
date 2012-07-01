@@ -26,7 +26,7 @@
 			<!-- Al igual que el Context Principal, el Servlet necesita saber cual es su configuracion -->
 			<param-name>contextConfigLocation</param-name>
 			<!-- Por lo tanto se le pasa como valor la configuraciòn de Spring en su archivo xml -->
-			<param-value>classpath*:/PeristenceCtx.xml</param-value>
+			<param-value>/WEB-INF/PersistenceCtx.xml</param-value>
 		</init-param>
 		<!-- Le indicamos que va a ser el primer servlet en cargar -->
         <load-on-startup>1</load-on-startup>

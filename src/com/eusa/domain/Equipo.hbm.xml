@@ -4,33 +4,46 @@
 <!-- Generated 26/06/2012 07:10:55 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.eusa.domain.Equipo" table="EQUIPO" discriminator-value="com.eusa.domain.Equipo">
-        <id name="id" type="int">
-            <column name="ID" />
-            <generator class="native" />
+         <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
         </id>
         <discriminator column="class" type="string"/>
+        <version name="version" type="long">
+            <column name="version" not-null="true" />
+        </version>
               
         <property name="marca" type="java.lang.String">
-            <column name="MARCA" />
+            <column name="marca" />
         </property>
         <property name="serie" type="java.lang.String">
-            <column name="SERIE" />
+            <column name="serie" />
         </property>
-        <property name="marcaMotor" type="java.lang.String">
-            <column name="MARCA_MONITOR" />
+        <property name="marcaMonitor" type="java.lang.String">
+            <column name="marca_monitor" />
         </property>
         <property name="modeloMotor" type="java.lang.String">
-            <column name="MODELO_MOTOR" />
+            <column name="modelo_motor" />
         </property>
         <property name="serieMotor" type="java.lang.String">
-            <column name="SERIE_MOTOR" />
+            <column name="serie_motor" />
         </property>
-        <property name="estatus" type="java.lang.String">
-            <column name="ESTATUS" />
+        <property name="status" type="java.lang.String">
+            <column name="status" />
         </property>
         
+        
+        <set name="servicios" table="equipo_servicio" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="equipo_servicios_id" />
+            </key>
+            <many-to-many entity-name="com.eusa.domain.Equipo">
+                <column name="servicio_id" not-null="true" />
+            </many-to-many>
+        </set>
+        
         <subclass name="com.eusa.domain.Maquinaria" discriminator-value="com.eusa.domain.Maquinaria">
-        	<property name="description" type="java.lang.String">
+        	<property name="descripcion" type="java.lang.String">
 				<column	name="descripcion"/>
         	</property>
         	

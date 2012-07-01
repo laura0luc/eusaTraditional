@@ -1,10 +1,15 @@
 package com.eusa.domain;
 
 public class Maquinaria extends Equipo {
-	private int id;
+	private Long id;
 	private int horasTrabajadas;
 	private String descripcion;
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public int getHorasTrabajadas() {
 		return horasTrabajadas;
 	}
@@ -17,11 +22,6 @@ public class Maquinaria extends Equipo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 }

@@ -1,14 +1,39 @@
 package com.eusa.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+
+
 public class Equipo {
-	protected int id;
+	protected Long id;
+	private Long version;
 	protected String marca;
 	protected String serie;
 	protected String marcaMonitor;
 	protected String modeloMotor;
 	protected String serieMotor;
-	protected String estatus; //Puede ser en uso, disponible, averiado
-	
+	protected String status; //Puede ser en uso, disponible, averiado
+	private Set<Servicio> servicios = new HashSet<Servicio>(0);
+
+	public Set<Servicio> getServicios() {
+		return servicios;
+	}
+	public void setServicios(Set<Servicio> servicios) {
+		this.servicios = servicios;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getVersion() {
+		return version;
+	}
+	public void setVersion(Long version) {
+		this.version = version;
+	}
 	public String getMarca() {
 		return marca;
 	}
@@ -21,11 +46,11 @@ public class Equipo {
 	public void setSerie(String serie) {
 		this.serie = serie;
 	}
-	public String getMarcaMotor() {
+	public String getMarcaMonitor() {
 		return marcaMonitor;
 	}
-	public void setMarcaMotor(String marcaMotor) {
-		this.marcaMonitor = marcaMotor;
+	public void setMarcaMonitor(String marcaMonitor) {
+		this.marcaMonitor = marcaMonitor;
 	}
 	public String getModeloMotor() {
 		return modeloMotor;
@@ -39,18 +64,13 @@ public class Equipo {
 	public void setSerieMotor(String serieMotor) {
 		this.serieMotor = serieMotor;
 	}
-	public String getEstatus() {
-		return estatus;
+	public String getStatus() {
+		return status;
 	}
-	public void setEstatus(String estatus) {
-		this.estatus = estatus;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
+	public void setStatus(String estatus) {
+		this.status = estatus;
 	}
 	
+
 
 }

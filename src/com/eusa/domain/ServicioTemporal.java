@@ -5,7 +5,7 @@ import java.util.Date;
 public class ServicioTemporal extends Servicio {
 	private int frecuencia;
 	private Date fechaIni;
-	private Date fechaFin;
+	private Date fechafin;
 	public int getFrecuencia() {
 		return frecuencia;
 	}
@@ -18,11 +18,12 @@ public class ServicioTemporal extends Servicio {
 	public void setFechaIni(Date fechaIni) {
 		this.fechaIni = fechaIni;
 	}
-	public Date getFechaFin() {
-		return fechaFin;
+	public Date getFechafin() {
+		return fechafin;
 	}
-	public void setFechaFin(Date fechaFin) {
-		this.fechaFin = fechaFin;
+	public void setFechafin(Date fechafin) {
+		this.fechafin = fechafin;
 	}
+
 
 }
