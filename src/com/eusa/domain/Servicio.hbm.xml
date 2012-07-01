@@ -9,10 +9,10 @@
             <generator class="assigned" />
         </id>
         <property name="nombre" type="java.lang.String">
-            <column name="NOMBRE" />
+            <column name="nombre" />
         </property>
         <property name="ultimoServicio" type="java.util.Date">
-            <column name="ULTIMOSERVICIO" />
+            <column name="ultimo_servicio" />
         </property>
     </class>
 </hibernate-mapping>

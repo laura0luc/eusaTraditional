@@ -3,11 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 26/06/2012 07:10:55 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.eusa.domain.Equipo" table="EQUIPO">
+    <class name="com.eusa.domain.Equipo" table="EQUIPO" discriminator-value="com.eusa.domain.Equipo">
         <id name="id" type="int">
             <column name="ID" />
             <generator class="native" />
         </id>
+        <discriminator column="class" type="string"/>
+              
         <property name="marca" type="java.lang.String">
             <column name="MARCA" />
         </property>
@@ -15,17 +17,46 @@
             <column name="SERIE" />
         </property>
         <property name="marcaMotor" type="java.lang.String">
-            <column name="MARCAMOTOR" />
+            <column name="MARCA_MONITOR" />
         </property>
         <property name="modeloMotor" type="java.lang.String">
-            <column name="MODELOMOTOR" />
+            <column name="MODELO_MOTOR" />
         </property>
         <property name="serieMotor" type="java.lang.String">
-            <column name="SERIEMOTOR" />
+            <column name="SERIE_MOTOR" />
         </property>
         <property name="estatus" type="java.lang.String">
             <column name="ESTATUS" />
         </property>
+        
+        <subclass name="com.eusa.domain.Maquinaria" discriminator-value="com.eusa.domain.Maquinaria">
+        	<property name="description" type="java.lang.String">
+				<column	name="descripcion"/>
+        	</property>
+        	
+        	<property name="horasTrabajadas" type="java.lang.Integer">
+				<column	name="horas_trabajadas"/>
+        	</property>
+    	</subclass>
+        
+        <subclass name="com.eusa.domain.Vehiculo" discriminator-value="com.eusa.domain.Vehiculo">
+        	<property name="placa" type="java.lang.String">
+				<column	name="placa"/>
+        	</property>
+        	
+        	<property name="tarjetaCirculacion" type="java.lang.String">
+				<column	name="tarjeta_circulacion"/>
+        	</property>
+        	
+        	<property name="kilometraje" type="java.lang.Integer">
+				<column	name="kilometraje"/>
+        	</property>
+        	
+        	<property name="tipo" type="java.lang.String">
+				<column	name="tipo"/>
+        	</property>
+    	</subclass>
+        
         
     </class>
 </hibernate-mapping>

@@ -4,7 +4,7 @@ public class Equipo {
 	protected int id;
 	protected String marca;
 	protected String serie;
-	protected String marcaMotor;
+	protected String marcaMonitor;
 	protected String modeloMotor;
 	protected String serieMotor;
 	protected String estatus; //Puede ser en uso, disponible, averiado
@@ -22,10 +22,10 @@ public class Equipo {
 		this.serie = serie;
 	}
 	public String getMarcaMotor() {
-		return marcaMotor;
+		return marcaMonitor;
 	}
 	public void setMarcaMotor(String marcaMotor) {
-		this.marcaMotor = marcaMotor;
+		this.marcaMonitor = marcaMotor;
 	}
 	public String getModeloMotor() {
 		return modeloMotor;
