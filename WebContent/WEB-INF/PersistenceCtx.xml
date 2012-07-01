@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
+    
+	<!-- La definición del Datasource -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+
+	 <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="driverClassName" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		<property name="url" value="jdbc:mysql://192.168.1.71/eusa" />
+		<property name="username" value="root" />
+		<property name="password" value="suave" />
+	</bean>
+	
+	
+    <!-- ************ Bean de creacion de la SessionFactory de Hibernate *********-->
+    <bean id="BaseSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" >
+        <property name="dataSource" ref="BaseDataSource" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.use_sql_comments">false</prop>
+                <prop key="hibernate.auto_close_session">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop> 
+                            
+            </props>
+        </property>
+     <property name="mappingResources">
+             <list>
+            	<value>com/eusa/domain/Equipo.hbm.xml</value>
+            </list>
+        </property>  
+    </bean>
+	
+	
+	
+</beans>

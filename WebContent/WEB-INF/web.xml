@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>Eusa</display-name>
+	<context-param>
+		<description>
+		Vaadin production mode</description>
+		<param-name>productionMode</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>Eusa Application</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<description>
+			Vaadin application class to start</description>
+			<param-name>application</param-name>
+			<param-value>com.example.eusa.EusaApplication</param-value>
+		</init-param>
+	</servlet>
+	
+		<!-- El DispatcherServlet es una classe de Spring que se encarga de resolver todas las peticiones en base a su configuración -->
+	<servlet>
+		<servlet-name>spring-servlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<!-- Al igual que el Context Principal, el Servlet necesita saber cual es su configuracion -->
+			<param-name>contextConfigLocation</param-name>
+			<!-- Por lo tanto se le pasa como valor la configuraciòn de Spring en su archivo xml -->
+			<param-value>classpath*:/PeristenceCtx.xml</param-value>
+		</init-param>
+		<!-- Le indicamos que va a ser el primer servlet en cargar -->
+        <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	
+	<servlet-mapping>
+		<servlet-name>Eusa Application</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

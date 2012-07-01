@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+
+
+
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss,SSS} %p - %C{1}.%M(%L) | %m%n" />
+        </layout>
+    </appender>
+
+
+       <appender name="daily-rolling-file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="maf/logs/maf.log"/>
+        <param name="datePattern" value="yyyy-MM-dd"/>
+        <param name="append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss,SSS} %p - %C{1}.%M(%L) | %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="org.hibernate">
+        <level value="info"/>
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="info"/>
+    </logger>
+
+    <logger name="org.hibernate.type">
+        <level value="info"/>
+    </logger>
+
+
+
+    <logger name="org.hibernate.SQL">
+        <level value="DEBUG"/>
+    </logger>
+
+
+     <logger name="org.hibernate.ejb.Ejb3Configuration.Ejb3Configuration.configure">
+        <level value="debug"/>
+    </logger>
+
+
+
+     <logger name="org.apache">
+        <level value="info"/>
+    </logger>
+
+      <logger name="com.eusa">
+        <level value="debug"/>
+    </logger>
+
+   
+
+    <logger name="logLevel">
+        <level value="debug"/>
+    </logger>
+
+
+
+
+    <root>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="daily-rolling-file"/>
+    </root>
+</log4j:configuration>

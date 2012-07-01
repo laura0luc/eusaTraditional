@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  
+  <property name="hibernate.connection.url">jdbc:mysql://192.168.1.71/eusa</property>
+  <property name="hibernate.connection.username">trimestral</property>
+  <property name="hibernate.connection.password">proyecto</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <!-- <mapping class="com.eusa.domain.Persona"/> -->
+  <mapping resource="com/eusa/domain/Persona.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

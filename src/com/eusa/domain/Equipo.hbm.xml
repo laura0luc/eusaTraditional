@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/06/2012 07:10:55 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.eusa.domain.Equipo" table="EQUIPO">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="marca" type="java.lang.String">
+            <column name="MARCA" />
+        </property>
+        <property name="serie" type="java.lang.String">
+            <column name="SERIE" />
+        </property>
+        <property name="marcaMotor" type="java.lang.String">
+            <column name="MARCAMOTOR" />
+        </property>
+        <property name="modeloMotor" type="java.lang.String">
+            <column name="MODELOMOTOR" />
+        </property>
+        <property name="serieMotor" type="java.lang.String">
+            <column name="SERIEMOTOR" />
+        </property>
+        <property name="estatus" type="java.lang.String">
+            <column name="ESTATUS" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

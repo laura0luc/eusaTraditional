@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/06/2012 05:12:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.eusa.domain.Persona" table="persona" catalog="eusa">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <version name="version" type="long">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="apellidom" type="string">
+            <column name="apellidom" not-null="true" />
+        </property>
+        <property name="apellidop" type="string">
+            <column name="apellidop" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" not-null="true" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres" not-null="true" />
+        </property>
+        <property name="puesto" type="string">
+            <column name="puesto" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
