@@ -8,7 +8,7 @@ public class Servicio {
 	private Long id;
 	private Long version;
 	protected String nombre;
-	protected Date ultimoServicio;
+	protected String ultimoServicio;
 	private Set<Equipo> equipos = new HashSet<Equipo>(0);
 	public Long getId() {
 		return id;
@@ -34,10 +34,10 @@ public class Servicio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Date getUltimoServicio() {
+	public String getUltimoServicio() {
 		return ultimoServicio;
 	}
-	public void setUltimoServicio(Date ultimoServicio) {
+	public void setUltimoServicio(String ultimoServicio) {
 		this.ultimoServicio = ultimoServicio;
 	}
 	

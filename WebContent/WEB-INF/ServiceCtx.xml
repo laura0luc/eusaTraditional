@@ -8,7 +8,9 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
-<bean id="saludaService" class="com.eusa.service.CronNotificationService"/>
+<bean id="saludaService" class="com.eusa.service.CronNotificationService">
+    <property name="servicioDao" ref="servicioDao" />
+</bean>
 
 
 
@@ -26,8 +28,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <property name="jobDetail" ref="saludaJobDetail" />
         <!-- 10 seconds -->
         <property name="startDelay" value="10000" />
-        <!-- repeat every 15 seconds -->
-        <property name="repeatInterval" value="15000" />
+        <!-- repeat every 60 seconds -->
+        <property name="repeatInterval" value="60000" />
     </bean>
 
 	<bean id="schedulerFactory"

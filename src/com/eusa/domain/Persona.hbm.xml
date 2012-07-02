@@ -4,7 +4,7 @@
 <!-- Generated 30/06/2012 05:12:51 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.eusa.domain.Persona" table="persona" catalog="eusa">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="java.lang.Long">
             <column name="id" />
             <generator class="identity" />
         </id>

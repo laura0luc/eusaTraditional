@@ -4,7 +4,7 @@
 <!-- Generated 26/06/2012 07:25:28 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.eusa.domain.Servicio" table="servicio" discriminator-value="com.eusa.domain.Servicio">
-         <id name="id" type="java.lang.Integer">
+         <id name="id" type="java.lang.Long">
             <column name="id" />
             <generator class="identity" />
         </id>

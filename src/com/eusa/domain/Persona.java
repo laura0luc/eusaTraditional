@@ -7,7 +7,7 @@ package com.eusa.domain;
  */
 public class Persona implements java.io.Serializable {
 
-	private Integer id;
+	private Long id;
 	private long version;
 	private String apellidom;
 	private String apellidop;
@@ -27,11 +27,11 @@ public class Persona implements java.io.Serializable {
 		this.puesto = puesto;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
