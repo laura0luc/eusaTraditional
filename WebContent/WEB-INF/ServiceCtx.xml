@@ -25,7 +25,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
      <property name="unidadNotificationService" ref="unidadNotificationService" />
 </bean>
 <bean id="temporalNotificationService" class="com.eusa.service.TemporalNotificationService">
-
+	  <property name="equipoDao" ref="equipoDao" />
 </bean>
 
 <bean id="unidadNotificationService" class="com.eusa.service.UnidadNotificationService">    

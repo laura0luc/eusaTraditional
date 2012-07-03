@@ -1,4 +1,5 @@
 package com.eusa.service;
+import com.eusa.dao.EquipoDao;
 import com.eusa.dao.ServicioDao;
 import com.eusa.domain.Servicio;
 import com.eusa.domain.Equipo;
@@ -22,11 +23,17 @@ import java.util.Properties;
 public class TemporalNotificationService {
 	
 	
-	private ServicioDao servicioDao;
+	private EquipoDao equipoDao;
 	
-
-
 	
+	public EquipoDao getEquipoDao() {
+		return equipoDao;
+	}
+
+	public void setEquipoDao(EquipoDao equipoDao) {
+		this.equipoDao = equipoDao;
+	}
+
 	final String MAIL_TO = "laura_luc@hotmail.com";
 	//final String MAIL_TO = "eusconstrucciones@gmail.com";
 	final String MAIL_FROM="eusaweb@gmail.com";
@@ -144,7 +151,9 @@ public class TemporalNotificationService {
 	
 	public String obtenerEquipo(Servicio serv){
 		
-		System.out.println(serv.getEquipos());
+		//equipoDao.findAllByServiceId();
+		
+		//System.out.println(serv.getEquipos());
 		//Equipo equipo=Equipo.findById(serv.getId());
 		return "equipo";
 

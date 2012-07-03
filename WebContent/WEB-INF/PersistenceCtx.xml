@@ -55,7 +55,7 @@
 	</bean>
 	
        
-         <bean id="equipoDao" class="com.eusa.dao.equipoDao">
+      <bean id="equipoDao" class="com.eusa.dao.EquipoDao">
 		<property name="sessionFactory" ref="BaseSessionFactory" />
 	</bean>
 	
