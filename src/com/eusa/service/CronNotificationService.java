@@ -7,6 +7,23 @@ import com.eusa.dao.ServicioDao;
 public class CronNotificationService {
 	
 	private ServicioDao servicioDao;
+	private AbstractNotificationService abstractNotificationService;
+	
+
+
+	/* (non-Javadoc)
+	 * @see com.eusa.service.NotificationService#saluda()
+	 */
+	public void saluda() {
+		
+		//System.out.println(servicioDao.findAll());
+		
+		abstractNotificationService.calculaProxNotificacion(servicioDao.findAll());
+		String result = "Cron running a las " + new Date();
+		System.out.println(result);
+		
+	}
+	
 	
 	public ServicioDao getServicioDao() {
 		return servicioDao;
@@ -16,15 +33,13 @@ public class CronNotificationService {
 		this.servicioDao = servicioDao;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.eusa.service.NotificationService#saluda()
-	 */
-	public void saluda() {
-		
-		System.out.println(servicioDao.findAll());
-		String result = "Hola a las " + new Date();
-		System.out.println(result);
-		
+	public AbstractNotificationService getAbstractNotificationService() {
+		return abstractNotificationService;
+	}
+
+	public void setAbstractNotificationService(
+			AbstractNotificationService abstractNotificationService) {
+		this.abstractNotificationService = abstractNotificationService;
 	}
 
 }
